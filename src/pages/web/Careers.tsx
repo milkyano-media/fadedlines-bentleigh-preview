@@ -221,7 +221,7 @@ export default function Careers() {
                                             </FormLabel>
                                             <FormControl>
                                                 <Input
-                                                    placeholder="Johnathan"
+                                                    placeholder="johnathan@example.com"
                                                     className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
                                                     {...field}
                                                 />
@@ -242,7 +242,7 @@ export default function Careers() {
                                             </FormLabel>
                                             <FormControl>
                                                 <Input
-                                                    placeholder="Johnathan"
+                                                    placeholder="+61 4XX XXX XXX"
                                                     className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
                                                     {...field}
                                                 />

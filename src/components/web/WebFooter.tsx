@@ -1,13 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Logo from "@/assets/web/icons/logo.svg";
+import BgHero2 from "@/assets/web/home/hero.svg";
 import Facebook from "@/assets/web/icons/Facebook.svg";
 import Instagram from "@/assets/web/icons/Instagram.svg";
-import Youtube from "@/assets/web/icons/Youtube.svg";
 import Tiktok from "@/assets/web/icons/Tiktok.svg";
-import BgHero2 from "@/assets/web/home/hero.svg";
-import { Button } from "../ui/button";
+import Youtube from "@/assets/web/icons/Youtube.svg";
 import { generateLink } from "@/pages/web/Home";
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../ui/button";
 
 function isIOS() {
     return [
@@ -65,7 +64,11 @@ const WebFooter: React.FC = () => {
             <section className="relative z-10 bg-concrete-dark-90">
                 <div className="container mx-auto py-12 flex flex-col md:flex-row  justify-between relative z-0">
                     <div className="flex flex-col pb-12 md:py-0 gap-10">
-                        <img src={Logo} alt="barber shop faded lines" className="w-[20rem] h-auto" />
+                        <img
+                            src="/fadedlines-bentleigh-logo.png"
+                            alt="barber shop faded lines"
+                            className="w-[20rem] h-auto"
+                        />
                         <div className="flex flex-col gap-4 relative z-[99999999]">
                             <h4 className="text-sm font-poppins font-medium">Visit us on:</h4>
                             <ul className="flex gap-4 font-light relative z-40">

@@ -80,17 +80,17 @@ export default function Barbers() {
         {
             svg: "https://s3.milkyano.com/milkyano/fadedlines-bentleigh/barbers/anth.png",
             link: generateRoute("/anthony"),
-            landing: true,
+            landing: false,
         },
         {
             svg: "https://s3.milkyano.com/milkyano/fadedlines-bentleigh/barbers/ej.png",
             link: generateRoute("/ej"),
-            landing: true,
+            landing: false,
         },
         {
             svg: "https://s3.milkyano.com/milkyano/fadedlines-bentleigh/barbers/rafael.png",
             link: generateRoute("/rafael"),
-            landing: true,
+            landing: false,
         },
     ];
 
