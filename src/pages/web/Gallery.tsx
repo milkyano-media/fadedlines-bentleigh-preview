@@ -51,8 +51,7 @@ export default function GalleriesPage() {
 
     const generateLink = (text: string): JSX.Element => {
         const customize: boolean = false;
-        const squareLink: string =
-            "https://book.squareup.com/appointments/jy2gksgbixkv5v/location/LEWYVQ46HQREW/start";
+        const squareLink: string = "https://book.squareup.com/appointments/jy2gksgbixkv5v/location/LEWYVQ46HQREW/start";
 
         let bookLink: string;
         const parts = location.pathname.split("/");
@@ -90,8 +89,8 @@ export default function GalleriesPage() {
                 <meta name="twitter:card" content="summary_large_img" />
             </Helmet>
 
-            <div className="flex flex-col text-stone-50 bg-black w-full relative mt-10 bg-concrete-dark-90">
-                <section className="bg-concrete-dark-90 py-12 pt-32 px-0 container pr-0 md:pr-4 relative z-30 flex gap-12 justify-center items-center flex-col md:flex-row overflow-hidden">
+            <div className="flex flex-col text-stone-50 w-full relative mt-10">
+                <section className="bg-concrete-dark-80 py-12 pt-32 px-0 container pr-0 md:pr-4 relative z-30 flex gap-12 justify-center items-center flex-col md:flex-row overflow-hidden">
                     <div className="w-full md:w-10/12 flex flex-col justify-end md:pb-24 h-full">
                         <h3 className="text-3xl md:text-4xl font-extrabold tracking-wider flex flex-col  md:gap-2 text-center md:text-right">
                             <span>BE OUR NEXT</span>
@@ -102,8 +101,8 @@ export default function GalleriesPage() {
                         </Button>
                     </div>
                     <div className="relative w-full min-h-[25rem] md:min-h-[40rem]">
-                        <div className="absolute inset-0 overflow-hidden bg-concrete-dark-80">
-                            <div className="bg-concrete-dark-80 w-full h-full flex justify-end md:justify-center items-center rotate-[10deg] md:rotate-[12deg]">
+                        <div className="absolute inset-0 overflow-hidden bg-concrete-dark-70">
+                            <div className="bg-concrete-dark-70 w-full h-full flex justify-end md:justify-center items-center rotate-[10deg] md:rotate-[12deg]">
                                 <CardStack />
                             </div>
                         </div>

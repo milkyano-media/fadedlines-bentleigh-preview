@@ -85,7 +85,7 @@ export default function AboutUs() {
                     src={BgHero2}
                     className="top-0 absolute w-full h-full object-cover"
                 />
-                <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-concrete-dark-90/80 to-concrete-dark-90" />
+                <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-concrete-dark-80/80 to-concrete-dark-80" />
                 <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
                     <div className="flex flex-col mb-12">
                         <h2 className="text-lime">AWARD WINNING</h2>

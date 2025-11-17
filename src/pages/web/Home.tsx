@@ -143,7 +143,7 @@ export default function Home() {
                     src={BgHero2}
                     className="top-0 absolute w-full h-full object-cover"
                 />
-                <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-concrete-dark-90/80 to-concrete-dark-90" />
+                <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-concrete-dark-80/80 to-concrete-dark-80" />
                 <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
                     <div className="w-full md:w-64">
                         <img
@@ -185,7 +185,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="flex flex-col justify-center items-center">
+            <section className="flex flex-col justify-center items-center bg-concrete-dark-80">
                 <h2 className="text-lime">GALLERY</h2>
                 <p>Our Results</p>
 

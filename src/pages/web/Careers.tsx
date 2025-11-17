@@ -132,7 +132,7 @@ export default function Careers() {
             </Helmet>
 
             <section className="flex flex-col justify-center items-center relative pt-40">
-                <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-concrete-dark-90/80 to-concrete-dark-90" />
+                <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-concrete-dark-80/80 to-concrete-dark-80" />
                 <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
                     <div className="flex flex-col mb-12">
                         <h2 className="text-lime">JOIN THE BEST</h2>
@@ -151,7 +151,7 @@ export default function Careers() {
                 </div>
             </section>
 
-            <div className="bg-concrete-dark-90 flex flex-col text-stone-50 bg-black w-full relative tracking-wider">
+            <div className="flex flex-col text-stone-50 w-full relative tracking-wider">
                 <AlertDialog open={isLoading} onOpenChange={setIsLoading}>
                     <AlertDialogContent>
                         <AlertDialogHeader>
@@ -177,7 +177,7 @@ export default function Careers() {
                     </AlertDialogContent>
                 </AlertDialog>
 
-                <section className="bg-concrete-dark-90 flex gap-4 md:gap-32 flex-col md:flex-row relative z-30 container justify-center md:pt-12  items-center ">
+                <section className="bg-concrete-dark-80 flex gap-4 md:gap-32 flex-col md:flex-row relative z-30 container justify-center md:pt-12  items-center ">
                     <div className="w-7/12 md:w-1/5 pt-12 pb-24 md:pb-0 md:pt-0">
                         <img src={Clipper} alt="clipper" className="w-full" />
                     </div>
