@@ -9,7 +9,7 @@ This is the Milkyano Barber Web application - a modern booking platform for Fade
 ## Common Development Commands
 
 ```bash
-# Install dependencies (uses Yarn - specified in package.json)
+# Install dependencies (MUST use Yarn - enforced via packageManager in package.json)
 yarn install
 
 # Start development server (Vite, default port 5173)
@@ -18,7 +18,7 @@ yarn dev
 # Build for production (runs TypeScript compiler first, then Vite build)
 yarn build
 
-# Run ESLint with TypeScript support
+# Run ESLint with TypeScript support (--max-warnings 0, fails on any warning)
 yarn lint
 
 # Preview production build locally
