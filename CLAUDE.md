@@ -53,8 +53,8 @@ src/
 │   ├── web/             # Main website components (header, footer, gallery carousel, Instagram section)
 │   └── react-svg/       # SVG components (logo)
 ├── pages/
-│   ├── landing/         # Individual barber landing pages (11 barbers: Josh, Wyatt, Rayhan, Jay, Niko, Emman, Dejan, Christos, Anthony, Noah, Amir)
-│   └── web/             # Main site pages (Home, Barbers, Gallery, AboutUs, Careers, Contacts, PrivacyPolicy, NotFound)
+│   ├── landing/         # Individual barber landing pages (currently: Anthony, Ej, Rafael - Rafael commented out in routes)
+│   └── web/             # Main site pages (Home, Barbers, Gallery, AboutUs, Careers, Contacts, PrivacyPolicy, NotFound, Maintenance)
 ├── utils/               # API clients and helper functions
 ├── hooks/               # Custom hooks for GTM, event tracking, UTM tracking
 ├── interfaces/          # TypeScript interfaces (BookingInterface, CustomerInterface, EventInterface, UserInterface)
@@ -65,7 +65,7 @@ src/
 
 The routing system in `routes.tsx` uses a **duplicated route pattern** to support both normal and `/meta` prefixed URLs for analytics tracking purposes. Key patterns:
 
-1. **Barber Landing Pages**: 11 individual barbers with routes like `/{barber-name}` and `/meta/{barber-name}`
+1. **Barber Landing Pages**: Individual barbers with routes like `/{barber-name}` and `/meta/{barber-name}` (currently: anthony, ej)
 2. **Barber-Specific Booking Flows**: Each barber has their own complete booking flow:
    - `/{barber-name}/book/services` → Service selection
    - `/{barber-name}/book/appointment` → Date/time selection
@@ -127,6 +127,10 @@ Required environment variables:
 - `VITE_BASE_URL_MINIO`: MinIO object storage URL for assets
 - `VITE_NEW_API`: Secondary API base URL (deprecated customer registration system)
 - `VITE_MAINTENANCE_MODE`: Enable/disable maintenance mode (`true`/`false`)
+- `VITE_DASHBOARD_KEY`: Dashboard authentication key
+- `VITE_GOOGLE_CLIENT_ID`: Google OAuth client ID (optional)
+- `VITE_IS_BOOKING_REDIRECT`: Flag for booking redirect behavior (optional)
+- `VITE_BOOKING_REDIRECT_URL`: Target URL for booking redirects (optional)
 
 ### Maintenance Mode
 
@@ -152,17 +156,19 @@ The application supports a maintenance mode feature to display a branded mainten
 ### Build and Deployment
 
 - **Build Process**: TypeScript compilation followed by Vite bundling
+- **Package Manager**: Yarn is enforced via `packageManager` field in package.json (version 1.22.22). However, Dockerfile uses npm for build process.
 - **Docker Image**: Multi-stage build (Node 20 → Nginx Alpine)
   - Stage 1: npm install & build (creates `dist/`)
   - Stage 2: Nginx serves static files from `dist/`
   - Custom nginx.conf configuration
   - Image name: `aldovadev/barber-web:latest`
+  - **Note**: Dockerfile uses npm instead of yarn, which may cause inconsistencies. Consider updating Dockerfile to use yarn.
 - **Path Aliasing**: `@/` → `src/` (configured in both tsconfig.json and vite.config.ts)
 - **Chunk Size Limit**: Increased to 1600KB in vite.config.ts to accommodate large bundles
 
 ### Key Implementation Details
 
-1. **Barber Image Mapping**: Static imports in BookList.tsx map barber names (uppercase) to image assets
+1. **Barber Image Mapping**: Static imports in BookList.tsx map barber names (uppercase) to image assets. Current barbers: LUCAS, CAN, RAYHAN, ANTHONY, JAY, WYATT, EMMAN, CHRISTOS, JOSH, NIKO, NOAH, AMIR, JAMIE
 2. **Type Safety**: Strict TypeScript mode enabled with noUnusedLocals and noUnusedParameters
 3. **Form Validation**: Zod schemas with React Hook Form resolver pattern
 4. **Responsive Design**: react-responsive for device detection, Tailwind for styling
