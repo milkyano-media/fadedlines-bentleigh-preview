@@ -1,4 +1,4 @@
-import BgHero2 from "@/assets/web/home/hero.svg";
+import BgHero2 from "@/assets/web/home/hero.jpeg";
 import Facebook from "@/assets/web/icons/Facebook.svg";
 import Instagram from "@/assets/web/icons/Instagram.svg";
 import Tiktok from "@/assets/web/icons/Tiktok.svg";
