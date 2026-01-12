@@ -4,7 +4,9 @@ import CarauselGallery from "@/components/web/OurWorks";
 import Layout from "@/components/web/WebLayout";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Link, useLocation } from "react-router-dom";
+import { 
+    // Link, 
+    useLocation } from "react-router-dom";
 
 export default function GalleriesPage() {
     localStorage.removeItem("booking_source");
@@ -49,24 +51,24 @@ export default function GalleriesPage() {
         localStorage.setItem("booking_origin", "organic");
     }
 
-    const generateLink = (text: string): JSX.Element => {
-        const customize: boolean = false;
-        const squareLink: string = "https://book.squareup.com/appointments/jy2gksgbixkv5v/location/LEWYVQ46HQREW/start";
+    // const generateLink = (text: string): JSX.Element => {
+    //     const customize: boolean = false;
+    //     const squareLink: string = "https://book.squareup.com/appointments/jy2gksgbixkv5v/location/LEWYVQ46HQREW/start";
 
-        let bookLink: string;
-        const parts = location.pathname.split("/");
-        if (parts[1] === "meta") {
-            bookLink = `/meta/book/services`;
-        } else {
-            bookLink = "/book/services";
-        }
+    //     let bookLink: string;
+    //     const parts = location.pathname.split("/");
+    //     if (parts[1] === "meta") {
+    //         bookLink = `/meta/book/services`;
+    //     } else {
+    //         bookLink = "/book/services";
+    //     }
 
-        if (customize) {
-            return <Link to={bookLink}>{text}</Link>;
-        } else {
-            return <a href={squareLink}>{text}</a>;
-        }
-    };
+    //     if (customize) {
+    //         return <Link to={bookLink}>{text}</Link>;
+    //     } else {
+    //         return <a href={squareLink}>{text}</a>;
+    //     }
+    // };
 
     const { scrollYProgress } = useScroll();
     const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
