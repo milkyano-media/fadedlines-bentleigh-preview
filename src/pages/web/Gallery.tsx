@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import BookNowButton from "@/components/web/BookNowButton";
 import CardStack from "@/components/web/CardStack";
 import CarauselGallery from "@/components/web/OurWorks";
 import Layout from "@/components/web/WebLayout";
@@ -96,9 +96,13 @@ export default function GalleriesPage() {
                             <span>BE OUR NEXT</span>
                             <span className="text-transparent bg-lime bg-clip-text">MASTERPIECE</span>
                         </h3>
-                        <Button className="bg-concrete border-[0.5px] border-white text-2xl text-white font-bold px-16 py-7 w-max self-center md:self-end mt-6 hover:bg-concrete/80">
-                            {generateLink("BOOK NOW")}
-                        </Button>
+                        <div className="self-center md:self-end mt-6">
+                            <a href="https://book.squareup.com/appointments/jy2gksgbixkv5v/location/LEWYVQ46HQREW/start">
+                                <BookNowButton className="px-14 md:px-16 py-4 md:py-5 text-xl md:text-2xl">
+                                    BOOK NOW
+                                </BookNowButton>
+                            </a>
+                        </div>
                     </div>
                     <div className="relative w-full min-h-[25rem] md:min-h-[40rem]">
                         <div className="absolute inset-0 overflow-hidden bg-concrete-dark-70">

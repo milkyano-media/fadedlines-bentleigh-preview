@@ -92,7 +92,7 @@ const Header: React.FC = () => {
                         <img
                             src="https://s3.milkyano.com/milkyano/fadedlines-bentleigh/global/logo.png"
                             alt="Fadedlines Bentleigh Logo"
-                            className="w-16 h-auto"
+                            className="w-24 h-auto"
                         />
                     </Link>
                 </div>
