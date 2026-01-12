@@ -31,7 +31,7 @@ const NavLink: React.FC<NavLinkProps> = ({ to, label }) => {
 
 const links = [
     { to: "/", label: "Home" },
-    { to: "/barbers", label: "Barbers" },
+    // { to: "/barbers", label: "Barbers" },
     { to: "/gallery", label: "Gallery" },
     { to: "/about-us", label: "About Us" },
     { to: "/careers", label: "Careers" },
@@ -80,9 +80,20 @@ const Header: React.FC = () => {
         >
             <div className="container mx-auto flex justify-between items-center relative z-10 border-none px-2 md:px-4">
                 <h1 className="text-2xl font-bold text-transparent hidden ">Barber Shop</h1>
+                {/* Logo Kiri - Tetap ada */}
                 <div className="flex flex-col justify-center items-center">
                     <Link to={generateRoute("/home")}>
                         <img src="/fadedlines-bentleigh-logo.png" className="w-24 md:w-18 h-auto opacity-90" />
+                    </Link>
+                </div>
+                {/* Logo Utama di Tengah - Hanya tampil di mobile */}
+                <div className="lg:hidden absolute left-1/2 transform -translate-x-1/2">
+                    <Link to={generateRoute("/home")}>
+                        <img
+                            src="https://s3.milkyano.com/milkyano/fadedlines-bentleigh/global/logo.png"
+                            alt="Fadedlines Bentleigh Logo"
+                            className="w-16 h-auto"
+                        />
                     </Link>
                 </div>
                 <nav className="hidden lg:block sticky top-0">
@@ -95,16 +106,6 @@ const Header: React.FC = () => {
                                 }`}
                             >
                                 HOME
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to={generateRoute("/barbers")}
-                                className={`text-md uppercase font-bold px-4 hover:text-white ${
-                                    location.pathname === "/barbers" ? "text-white" : ""
-                                }`}
-                            >
-                                BARBERS
                             </Link>
                         </li>
                         <li>
