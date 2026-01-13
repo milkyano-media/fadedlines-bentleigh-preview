@@ -17,6 +17,7 @@ import EjGallery from "@/assets/web/barbers/barbers-gallery/ej.png";
 import JamieGallery from "@/assets/web/barbers/barbers-gallery/jamie.png";
 
 // Social media and other icons
+import Logo from "@/assets/web/icons/logo.svg";
 import Instagram from "@/assets/web/icons/Instagram.svg";
 import Tiktok from "@/assets/web/icons/Tiktok.svg";
 import Maps from "@/assets/web/icons/Maps.svg";
@@ -248,11 +249,11 @@ export default function Home() {
                 />
                 <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-concrete-dark-80/80 to-concrete-dark-80" />
                 <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
-                    <div className="w-full md:w-80">
+                    <div className="flex flex-col">
                         <img
-                            src="https://s3.milkyano.com/milkyano/fadedlines-bentleigh/global/logo.png"
-                            alt="Fadedlines Bentleigh Logo"
-                            className="w-full"
+                            src={Logo}
+                            alt="Fadedlines Barber Shop"
+                            className="w-[20rem] md:w-[25rem] h-auto"
                         />
                     </div>
                     <BookNowButton onClick={handleHeroBookNowClick} className="px-14 md:px-16 py-4 md:py-5" />
