@@ -249,7 +249,7 @@ export default function Home() {
                 />
                 <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-concrete-dark-80/80 to-concrete-dark-80" />
                 <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col mt-8">
                         <img
                             src={Logo}
                             alt="Fadedlines Barber Shop"
