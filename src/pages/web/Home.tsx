@@ -23,6 +23,14 @@ import Tiktok from "@/assets/web/icons/Tiktok.svg";
 import Maps from "@/assets/web/icons/Maps.svg";
 import GoogleReview from "@/assets/web/icons/GoogleReview.svg";
 
+// CTA Button SVGs - Barber-specific
+import AnthonyCTA from "@/assets/web/barbers/cta-button/anthony.svg";
+import AnthonyCTAHover from "@/assets/web/barbers/cta-button/anthony-hover.svg";
+import EjCTA from "@/assets/web/barbers/cta-button/ej.svg";
+import EjCTAHover from "@/assets/web/barbers/cta-button/ej-hover.svg";
+import JamieCTA from "@/assets/web/barbers/cta-button/jamie.svg";
+import JamieCTAHover from "@/assets/web/barbers/cta-button/jamie-hover.svg";
+
 const isBookingRedirect = import.meta.env.VITE_IS_BOOKING_REDIRECT;
 const bookingRedirectUrl = import.meta.env.VITE_BOOKING_REDIRECT_URL;
 
@@ -53,6 +61,7 @@ export default function Home() {
 
     // Gallery state management
     const [selectedBarber, setSelectedBarber] = useState(0);
+    const [isButtonHovered, setIsButtonHovered] = useState(false);
     const previewImageRef = useRef<HTMLDivElement>(null);
     const bookNowButtonRef = useRef<HTMLDivElement>(null);
 
@@ -130,6 +139,13 @@ export default function Home() {
             link: generateRoute("/jamie"),
             landing: false,
         },
+    ];
+
+    // CTA Button mapping for each barber
+    const barberCTAButtons = [
+        { normal: AnthonyCTA, hover: AnthonyCTAHover },  // 0: Anthony
+        { normal: EjCTA, hover: EjCTAHover },            // 1: EJ
+        { normal: JamieCTA, hover: JamieCTAHover },      // 2: Jamie
     ];
 
     // Transform barberSvgs into gallery-friendly format
@@ -438,36 +454,15 @@ export default function Home() {
                     <div ref={bookNowButtonRef} className="w-full max-w-screen-md mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
                         <div className="absolute w-full h-[2px] bg-[#33FF00]"></div>
                         <div className="relative z-10 px-4 bg-concrete-dark-80">
-                            {(() => {
-                                const customize: boolean = isBookingRedirect === "false" || false;
-                                const squareLink: string = bookingRedirectUrl || "https://app.squareup.com/appointments/book/jy2gksgbixkv5v/LEWYVQ46HQREW/start";
-
-                                let bookLink: string;
-                                const parts = location.pathname.split("/");
-                                if (parts[1] === "meta") {
-                                    bookLink = `/meta/book/services`;
-                                } else {
-                                    bookLink = "/book/services";
-                                }
-
-                                if (customize) {
-                                    return (
-                                        <Link to={bookLink}>
-                                            <BookNowButton className="px-8 md:px-12 py-3 md:py-4">
-                                                BOOK WITH {galleryBarbers[actualBarberIndex].name}
-                                            </BookNowButton>
-                                        </Link>
-                                    );
-                                } else {
-                                    return (
-                                        <a href={squareLink}>
-                                            <BookNowButton className="px-8 md:px-12 py-3 md:py-4">
-                                                BOOK WITH {galleryBarbers[actualBarberIndex].name}
-                                            </BookNowButton>
-                                        </a>
-                                    );
-                                }
-                            })()}
+                            <Link to={`${generateRoute(`/${galleryBarbers[actualBarberIndex].name.toLowerCase()}/book/services`)}`}>
+                                <img
+                                    src={isButtonHovered ? barberCTAButtons[actualBarberIndex].hover : barberCTAButtons[actualBarberIndex].normal}
+                                    alt={`Book With ${galleryBarbers[actualBarberIndex].name}`}
+                                    className="w-auto cursor-pointer h-[90px] md:h-[130px]"
+                                    onMouseEnter={() => setIsButtonHovered(true)}
+                                    onMouseLeave={() => setIsButtonHovered(false)}
+                                />
+                            </Link>
                         </div>
                     </div>
 
