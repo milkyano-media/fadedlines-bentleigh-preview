@@ -55,11 +55,19 @@ const BookList = () => {
 
       // 2. Filter for a specific barber if provided
       if (specificBarber && specificBarber !== "book") {
-        sortedProfiles = sortedProfiles.filter((profile) =>
-          profile.display_name
-            .toUpperCase()
-            .includes(specificBarber.toUpperCase()),
-        );
+        // Alias mapping: URL barber name → possible display names in Square API
+        const barberAliases: { [key: string]: string[] } = {
+          "anthony": ["ANTHONY", "ANTH"],
+          "ej": ["EJ"],
+          "jamie": ["JAMIE"],
+        };
+
+        const searchAliases = barberAliases[specificBarber.toLowerCase()] || [specificBarber.toUpperCase()];
+
+        sortedProfiles = sortedProfiles.filter((profile) => {
+          const profileName = profile.display_name.toUpperCase();
+          return searchAliases.some(alias => profileName.includes(alias));
+        });
       }
 
       // 3. Sort based on predefined sortOrder, unknowns go to bottom

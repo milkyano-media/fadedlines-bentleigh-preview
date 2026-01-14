@@ -116,27 +116,30 @@ export default function Home() {
             svg: Anthony,
             thumbnail: AnthonyGallery,
             link: generateRoute("/anthony"),
+            displayName: "ANTH",
             landing: true,
         },
         {
             svg: Ej,
             thumbnail: EjGallery,
             link: generateRoute("/ej"),
+            displayName: "EJ",
             landing: true,
         },
         {
             svg: Jamie,
             thumbnail: JamieGallery,
             link: generateRoute("/jamie"),
+            displayName: "JAMIE",
             landing: false,
         },
     ];
 
     // Transform barberSvgs into gallery-friendly format
-    const galleryBarbers = barberSvgs.map((barber, index) => ({
+    const galleryBarbers = barberSvgs.map((barber) => ({
         image: barber.svg,
         thumbnail: barber.thumbnail,
-        name: barber.link.split('/').pop()?.toUpperCase() || `BARBER ${index + 1}`,
+        name: barber.displayName,
         link: barber.link,
         landing: barber.landing,
     }));
@@ -438,7 +441,7 @@ export default function Home() {
                     <div ref={bookNowButtonRef} className="w-full max-w-screen-md mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
                         <div className="absolute w-full h-[2px] bg-[#33FF00]"></div>
                         <div className="relative z-10 px-4 bg-concrete-dark-80">
-                            <Link to={`${generateRoute(`/${galleryBarbers[actualBarberIndex].name.toLowerCase()}/book/services`)}`}>
+                            <Link to={`${galleryBarbers[actualBarberIndex].link}/book/services`}>
                                 <BookNowButton className="px-8 md:px-12 py-3 md:py-4">
                                     BOOK WITH {galleryBarbers[actualBarberIndex].name}
                                 </BookNowButton>
