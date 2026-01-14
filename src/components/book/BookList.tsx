@@ -12,6 +12,7 @@ import { getAllBarber, getAllService } from "@/utils/barberApi";
 import Spinner from "../web/Spinner";
 import Logo from "@/components/react-svg/logo";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import IconNavbarGreen from "@/assets/svg/icon-navbar-green.svg";
 
 // Bentleigh barbers: Anthony, EJ, and Jamie (based on Square API data)
 import Anthony from "@/assets/web/barbers/booking-list/anth-book.jpeg";
@@ -248,10 +249,27 @@ const BookList = () => {
 
   return (
     <section className="relative bg-[#010401] min-h-screen">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start border-b border-[#1CFF21] md:border-b-0">
-        <Link to="/home">
-          <Logo className="w-48 md:w-[12rem] h-auto opacity-90" />
-        </Link>
+      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex items-center justify-between md:justify-start border-b border-[#1CFF21] md:border-b-0">
+        {/* Left: Home icon (visible on mobile) */}
+        <div className="flex items-center md:hidden">
+          <Link to="/home">
+            <img
+              src={IconNavbarGreen}
+              alt="Home"
+              className="w-8 h-auto opacity-100"
+            />
+          </Link>
+        </div>
+
+        {/* Center: Main logo (centered on mobile, left-aligned on desktop) */}
+        <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
+          <Link to="/home">
+            <Logo className="w-48 md:w-[12rem] h-auto opacity-90" />
+          </Link>
+        </div>
+
+        {/* Right: Empty space for mobile balance */}
+        <div className="w-8 md:hidden"></div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 py-24">
